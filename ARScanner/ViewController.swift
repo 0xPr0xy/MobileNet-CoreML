@@ -81,7 +81,7 @@ class ViewController: UIViewController, MTKViewDelegate, ARSessionDelegate {
             self.label.text = "\(classification.identifier) - \(roundedConfidence)"
         }
 
-        mlRequest.imageCropAndScaleOption = VNImageCropAndScaleOptionScaleFit
+        mlRequest.imageCropAndScaleOption = VNImageCropAndScaleOptionCenterCrop
 
         let handler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer)
 

@@ -14,7 +14,7 @@
 		D013E6851F1917C700A1A990 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D013E6841F19168C00A1A990 /* Assets.xcassets */; };
 		D013E6B01F1935AD00A1A990 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = D013E6AD1F19357D00A1A990 /* Shaders.metal */; };
 		D013E6B11F1935B400A1A990 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D013E6AC1F19357D00A1A990 /* Renderer.swift */; };
-		D013E6B31F1A2A1200A1A990 /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D013E6B21F1A2A1200A1A990 /* MobileNet.mlmodel */; };
+		D0B4BE6E1F2088E700BBD7F4 /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D0B4BE6D1F2088E300BBD7F4 /* MobileNet.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +29,7 @@
 		D013E6AD1F19357D00A1A990 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		D013E6AE1F19357D00A1A990 /* ShaderTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderTypes.h; sourceTree = "<group>"; };
 		D013E6AF1F19357D00A1A990 /* ARScanner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ARScanner-Bridging-Header.h"; sourceTree = "<group>"; };
-		D013E6B21F1A2A1200A1A990 /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = MobileNet.mlmodel; path = ../../../Downloads/MobileNet.mlmodel; sourceTree = "<group>"; };
+		D0B4BE6D1F2088E300BBD7F4 /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNet.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +66,7 @@
 				D013E6AD1F19357D00A1A990 /* Shaders.metal */,
 				D013E6AE1F19357D00A1A990 /* ShaderTypes.h */,
 				D013E6AF1F19357D00A1A990 /* ARScanner-Bridging-Header.h */,
-				D013E6B21F1A2A1200A1A990 /* MobileNet.mlmodel */,
+				D0B4BE6D1F2088E300BBD7F4 /* MobileNet.mlmodel */,
 				D013E6261F18015A00A1A990 /* AppDelegate.swift */,
 				D013E62D1F18015A00A1A990 /* ViewController.swift */,
 				D013E62F1F18015A00A1A990 /* Main.storyboard */,
@@ -149,8 +149,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D013E6B01F1935AD00A1A990 /* Shaders.metal in Sources */,
+				D0B4BE6E1F2088E700BBD7F4 /* MobileNet.mlmodel in Sources */,
 				D013E62E1F18015A00A1A990 /* ViewController.swift in Sources */,
-				D013E6B31F1A2A1200A1A990 /* MobileNet.mlmodel in Sources */,
 				D013E6271F18015A00A1A990 /* AppDelegate.swift in Sources */,
 				D013E6B11F1935B400A1A990 /* Renderer.swift in Sources */,
 			);
@@ -296,7 +296,7 @@
 				DEVELOPMENT_TEAM = XQ4S3U462T;
 				INFOPLIST_FILE = ARScanner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = nl.karify.ARScanner;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.pydev.ARScanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ARScanner/ARScanner-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
@@ -313,7 +313,7 @@
 				DEVELOPMENT_TEAM = XQ4S3U462T;
 				INFOPLIST_FILE = ARScanner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = nl.karify.ARScanner;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.pydev.ARScanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ARScanner/ARScanner-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;

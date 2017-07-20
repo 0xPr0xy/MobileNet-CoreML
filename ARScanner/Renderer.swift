@@ -432,7 +432,7 @@ class Renderer {
     
     func updateImagePlane(frame: ARFrame) {
         // Update the texture coordinates of our image plane to aspect fill the viewport
-        let displayToCameraTransform = frame.displayTransform(withViewportSize: viewportSize, orientation: .landscapeRight).inverted()
+        let displayToCameraTransform = frame.displayTransform(withViewportSize: viewportSize, orientation: UIInterfaceOrientation(rawValue: UIDevice.current.orientation.rawValue)!).inverted()
         
         let vertexData = imagePlaneVertexBuffer.contents().assumingMemoryBound(to: Float.self)
         for index in 0...3 {
