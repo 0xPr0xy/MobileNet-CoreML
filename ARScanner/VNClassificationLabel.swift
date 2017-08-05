@@ -12,7 +12,7 @@ class VNClassificationLabel: UILabel {
 
     private var lastObservation: VNClassificationObservation? {
         didSet {
-            self.animateUpdate(text: lastObservation?.identifier)
+            self.animateUpdate(text: lastObservation?.identifier.chopPrefix(9))
         }
     }
 

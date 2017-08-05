@@ -14,6 +14,7 @@
 		D013E6851F1917C700A1A990 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D013E6841F19168C00A1A990 /* Assets.xcassets */; };
 		D06CCE1C1F35922E00751CA8 /* VideoLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06CCE1B1F35922E00751CA8 /* VideoLayer.swift */; };
 		D06CCE1E1F359A0100751CA8 /* VNClassificationLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06CCE1D1F359A0100751CA8 /* VNClassificationLabel.swift */; };
+		D080E42F1F3601BC00067073 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D080E42E1F3601BC00067073 /* String+Utils.swift */; };
 		D0B4BE6E1F2088E700BBD7F4 /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D0B4BE6D1F2088E300BBD7F4 /* MobileNet.mlmodel */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		D013E6AF1F19357D00A1A990 /* ARScanner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ARScanner-Bridging-Header.h"; sourceTree = "<group>"; };
 		D06CCE1B1F35922E00751CA8 /* VideoLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoLayer.swift; sourceTree = "<group>"; };
 		D06CCE1D1F359A0100751CA8 /* VNClassificationLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VNClassificationLabel.swift; sourceTree = "<group>"; };
+		D080E42E1F3601BC00067073 /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
 		D0B4BE6D1F2088E300BBD7F4 /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNet.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,6 +73,7 @@
 				D013E6841F19168C00A1A990 /* Assets.xcassets */,
 				D06CCE1B1F35922E00751CA8 /* VideoLayer.swift */,
 				D06CCE1D1F359A0100751CA8 /* VNClassificationLabel.swift */,
+				D080E42E1F3601BC00067073 /* String+Utils.swift */,
 			);
 			path = ARScanner;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 			files = (
 				D0B4BE6E1F2088E700BBD7F4 /* MobileNet.mlmodel in Sources */,
 				D06CCE1E1F359A0100751CA8 /* VNClassificationLabel.swift in Sources */,
+				D080E42F1F3601BC00067073 /* String+Utils.swift in Sources */,
 				D013E62E1F18015A00A1A990 /* ViewController.swift in Sources */,
 				D013E6271F18015A00A1A990 /* AppDelegate.swift in Sources */,
 				D06CCE1C1F35922E00751CA8 /* VideoLayer.swift in Sources */,
