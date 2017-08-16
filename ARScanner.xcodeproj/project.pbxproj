@@ -14,6 +14,7 @@
 		D0FB2C251F444AAA00199C9B /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FB2C241F444AA500199C9B /* VideoCapture.swift */; };
 		D0FB2C271F444AFD00199C9B /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D0FB2C261F444AFD00199C9B /* MobileNet.mlmodel */; };
 		D0FB2C291F444B1F00199C9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FB2C281F444B1F00199C9B /* AppDelegate.swift */; };
+		D0FB2C2B1F444CCF00199C9B /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FB2C2A1F444CCF00199C9B /* Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		D0FB2C241F444AA500199C9B /* VideoCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
 		D0FB2C261F444AFD00199C9B /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = MobileNet.mlmodel; path = "../../MobileNet-CoreML/Camera Demo/MobileNetCamera/MobileNet.mlmodel"; sourceTree = "<group>"; };
 		D0FB2C281F444B1F00199C9B /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "../../MobileNet-CoreML/Camera Demo/MobileNetCamera/AppDelegate.swift"; sourceTree = "<group>"; };
+		D0FB2C2A1F444CCF00199C9B /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				D013E6341F18015A00A1A990 /* LaunchScreen.storyboard */,
 				D013E6371F18015A00A1A990 /* Info.plist */,
 				D013E6841F19168C00A1A990 /* Assets.xcassets */,
+				D0FB2C2A1F444CCF00199C9B /* Utilities.swift */,
 			);
 			path = ARScanner;
 			sourceTree = "<group>";
@@ -144,6 +147,7 @@
 				D0FB2C291F444B1F00199C9B /* AppDelegate.swift in Sources */,
 				D0FB2C251F444AAA00199C9B /* VideoCapture.swift in Sources */,
 				D013E62E1F18015A00A1A990 /* ViewController.swift in Sources */,
+				D0FB2C2B1F444CCF00199C9B /* Utilities.swift in Sources */,
 				D0FB2C271F444AFD00199C9B /* MobileNet.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
