@@ -7,30 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D013E6271F18015A00A1A990 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D013E6261F18015A00A1A990 /* AppDelegate.swift */; };
 		D013E62E1F18015A00A1A990 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D013E62D1F18015A00A1A990 /* ViewController.swift */; };
 		D013E6311F18015A00A1A990 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D013E62F1F18015A00A1A990 /* Main.storyboard */; };
 		D013E6361F18015A00A1A990 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D013E6341F18015A00A1A990 /* LaunchScreen.storyboard */; };
 		D013E6851F1917C700A1A990 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D013E6841F19168C00A1A990 /* Assets.xcassets */; };
-		D04B80C31F43466000D83405 /* MobileNet.mlmodel in Resources */ = {isa = PBXBuildFile; fileRef = D04B80C21F43466000D83405 /* MobileNet.mlmodel */; };
-		D06CCE1C1F35922E00751CA8 /* VideoLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06CCE1B1F35922E00751CA8 /* VideoLayer.swift */; };
-		D06CCE1E1F359A0100751CA8 /* VNClassificationLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06CCE1D1F359A0100751CA8 /* VNClassificationLabel.swift */; };
-		D080E42F1F3601BC00067073 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D080E42E1F3601BC00067073 /* String+Utils.swift */; };
+		D0FB2C251F444AAA00199C9B /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FB2C241F444AA500199C9B /* VideoCapture.swift */; };
+		D0FB2C271F444AFD00199C9B /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D0FB2C261F444AFD00199C9B /* MobileNet.mlmodel */; };
+		D0FB2C291F444B1F00199C9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FB2C281F444B1F00199C9B /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D013E6231F18015A00A1A990 /* ARScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D013E6261F18015A00A1A990 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D013E62D1F18015A00A1A990 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D013E6301F18015A00A1A990 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D013E6351F18015A00A1A990 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D013E6371F18015A00A1A990 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D013E6841F19168C00A1A990 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D013E6AF1F19357D00A1A990 /* ARScanner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ARScanner-Bridging-Header.h"; sourceTree = "<group>"; };
-		D04B80C21F43466000D83405 /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = MobileNet.mlmodel; sourceTree = "<group>"; };
-		D06CCE1B1F35922E00751CA8 /* VideoLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoLayer.swift; sourceTree = "<group>"; };
-		D06CCE1D1F359A0100751CA8 /* VNClassificationLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VNClassificationLabel.swift; sourceTree = "<group>"; };
-		D080E42E1F3601BC00067073 /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
+		D0FB2C241F444AA500199C9B /* VideoCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
+		D0FB2C261F444AFD00199C9B /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = MobileNet.mlmodel; path = "../../MobileNet-CoreML/Camera Demo/MobileNetCamera/MobileNet.mlmodel"; sourceTree = "<group>"; };
+		D0FB2C281F444B1F00199C9B /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "../../MobileNet-CoreML/Camera Demo/MobileNetCamera/AppDelegate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,17 +58,14 @@
 		D013E6251F18015A00A1A990 /* ARScanner */ = {
 			isa = PBXGroup;
 			children = (
-				D04B80C21F43466000D83405 /* MobileNet.mlmodel */,
-				D013E6AF1F19357D00A1A990 /* ARScanner-Bridging-Header.h */,
-				D013E6261F18015A00A1A990 /* AppDelegate.swift */,
+				D0FB2C261F444AFD00199C9B /* MobileNet.mlmodel */,
+				D0FB2C281F444B1F00199C9B /* AppDelegate.swift */,
 				D013E62D1F18015A00A1A990 /* ViewController.swift */,
+				D0FB2C241F444AA500199C9B /* VideoCapture.swift */,
 				D013E62F1F18015A00A1A990 /* Main.storyboard */,
 				D013E6341F18015A00A1A990 /* LaunchScreen.storyboard */,
 				D013E6371F18015A00A1A990 /* Info.plist */,
 				D013E6841F19168C00A1A990 /* Assets.xcassets */,
-				D06CCE1B1F35922E00751CA8 /* VideoLayer.swift */,
-				D06CCE1D1F359A0100751CA8 /* VNClassificationLabel.swift */,
-				D080E42E1F3601BC00067073 /* String+Utils.swift */,
 			);
 			path = ARScanner;
 			sourceTree = "<group>";
@@ -136,7 +128,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D04B80C31F43466000D83405 /* MobileNet.mlmodel in Resources */,
 				D013E6361F18015A00A1A990 /* LaunchScreen.storyboard in Resources */,
 				D013E6851F1917C700A1A990 /* Assets.xcassets in Resources */,
 				D013E6311F18015A00A1A990 /* Main.storyboard in Resources */,
@@ -150,11 +141,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D06CCE1E1F359A0100751CA8 /* VNClassificationLabel.swift in Sources */,
-				D080E42F1F3601BC00067073 /* String+Utils.swift in Sources */,
+				D0FB2C291F444B1F00199C9B /* AppDelegate.swift in Sources */,
+				D0FB2C251F444AAA00199C9B /* VideoCapture.swift in Sources */,
 				D013E62E1F18015A00A1A990 /* ViewController.swift in Sources */,
-				D013E6271F18015A00A1A990 /* AppDelegate.swift in Sources */,
-				D06CCE1C1F35922E00751CA8 /* VideoLayer.swift in Sources */,
+				D0FB2C271F444AFD00199C9B /* MobileNet.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,7 +294,9 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nl.pydev.ARScanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "ARScanner/ARScanner-Bridging-Header.h";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -321,7 +313,9 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nl.pydev.ARScanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "ARScanner/ARScanner-Bridging-Header.h";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

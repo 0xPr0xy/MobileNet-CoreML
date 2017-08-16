@@ -1,63 +1,144 @@
-//
-//  ViewController.swift
-//  ARScanner
-//
-//  Created by Peter on 04/08/2017.
-//
-
-import AVFoundation
-import Vision
 import UIKit
+import Vision
+import CoreMedia
 
-class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
+class ViewController: UIViewController {
+  @IBOutlet weak var videoPreview: UIView!
+  @IBOutlet weak var predictionLabel: UILabel!
+  @IBOutlet weak var timeLabel: UILabel!
 
-    // MARK: Properties
+  let model = MobileNet()
 
-    @IBOutlet private weak var cameraView: VideoLayer!
+  var videoCapture: VideoCapture!
+  var request: VNCoreMLRequest!
+  var startTimes: [CFTimeInterval] = []
 
-    @IBOutlet private weak var classificationLabel: VNClassificationLabel!
+  var framesDone = 0
+  var frameCapturingStartTime = CACurrentMediaTime()
+  let semaphore = DispatchSemaphore(value: 2)
 
-    private let visionSequenceHandler = VNSequenceRequestHandler()
+  override func viewDidLoad() {
+    super.viewDidLoad()
 
-    private let model: VNCoreMLModel = {
-        do {
-            return try VNCoreMLModel(for: MobileNet().model)
-        } catch {
-            fatalError("can't load Vision ML model: \(error)")
+    predictionLabel.text = ""
+    timeLabel.text = ""
+
+    setUpVision()
+    setUpCamera()
+  }
+
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+    print(#function)
+  }
+
+  // MARK: - Initialization
+
+  func setUpCamera() {
+    videoCapture = VideoCapture()
+    videoCapture.delegate = self
+    videoCapture.fps = 50
+    videoCapture.setUp { success in
+      if success {
+        // Add the video preview into the UI.
+        if let previewLayer = self.videoCapture.previewLayer {
+          self.videoPreview.layer.addSublayer(previewLayer)
+          self.resizePreviewLayer()
         }
-    }()
+        self.videoCapture.start()
+      }
+    }
+  }
 
-    // MARK: Lifecycle
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.cameraView?.setDelegate(self)
+  func setUpVision() {
+    guard let visionModel = try? VNCoreMLModel(for: model.model) else {
+      print("Error: could not create Vision model")
+      return
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        self.cameraView?.start()
-        super.viewDidAppear(animated)
+    request = VNCoreMLRequest(model: visionModel, completionHandler: requestDidComplete)
+    request.imageCropAndScaleOption = VNImageCropAndScaleOptionCenterCrop
+  }
+
+  // MARK: - UI stuff
+
+  override func viewWillLayoutSubviews() {
+    super.viewWillLayoutSubviews()
+    resizePreviewLayer()
+  }
+
+  override var preferredStatusBarStyle: UIStatusBarStyle {
+    return .lightContent
+  }
+
+  func resizePreviewLayer() {
+    videoCapture.previewLayer?.frame = videoPreview.bounds
+  }
+
+  // MARK: - Doing inference
+
+  typealias Prediction = (String, Double)
+
+  func predict(pixelBuffer: CVPixelBuffer) {
+    // Measure how long it takes to predict a single video frame. Note that
+    // predict() can be called on the next frame while the previous one is
+    // still being processed. Hence the need to queue up the start times.
+    startTimes.append(CACurrentMediaTime())
+
+    let handler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer)
+    try? handler.perform([request])
+  }
+
+  func requestDidComplete(request: VNRequest, error: Error?) {
+    if let observations = request.results as? [VNClassificationObservation] {
+
+      // The observations appear to be sorted by confidence already, so we
+      // take the top 5 and map them to an array of (String, Double) tuples.
+      let top5 = observations.prefix(through: 4)
+                             .map { ($0.identifier, Double($0.confidence)) }
+
+      DispatchQueue.main.async {
+        self.show(results: top5)
+        self.semaphore.signal()
+      }
     }
+  }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        self.cameraView?.stop()
-        super.viewWillDisappear(animated)
+  func show(results: [Prediction]) {
+    var s: [String] = []
+    for (i, pred) in results.enumerated() {
+      s.append(String(format: "%d: %@ (%3.2f%%)", i + 1, pred.0, pred.1 * 100))
     }
+    predictionLabel.text = s.joined(separator: "\n\n")
 
-    // MARK: AVCaptureVideoDataOutputSampleBufferDelegate
+    let latency = CACurrentMediaTime() - startTimes.remove(at: 0)
+    let fps = self.measureFPS()
+    timeLabel.text = String(format: "%.2f FPS (latency %.5f seconds)", fps, latency)
+  }
 
-    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
-            return
-        }
-
-        let request = VNCoreMLRequest(model: self.model, completionHandler: self.classificationLabel.handleVisionRequestUpdate)
-        request.imageCropAndScaleOption = VNImageCropAndScaleOptionCenterCrop
-
-        do {
-            try self.visionSequenceHandler.perform([request], on: pixelBuffer)
-        } catch {
-            self.classificationLabel.handleError(error)
-        }
+  func measureFPS() -> Double {
+    // Measure how many frames were actually delivered per second.
+    framesDone += 1
+    let frameCapturingElapsed = CACurrentMediaTime() - frameCapturingStartTime
+    let currentFPSDelivered = Double(framesDone) / frameCapturingElapsed
+    if frameCapturingElapsed > 1 {
+      framesDone = 0
+      frameCapturingStartTime = CACurrentMediaTime()
     }
+    return currentFPSDelivered
+  }
+}
+
+extension ViewController: VideoCaptureDelegate {
+  func videoCapture(_ capture: VideoCapture, didCaptureVideoFrame pixelBuffer: CVPixelBuffer?, timestamp: CMTime) {
+    if let pixelBuffer = pixelBuffer {
+      // For better throughput, perform the prediction on a background queue
+      // instead of on the VideoCapture queue. We use the semaphore to block
+      // the capture queue and drop frames when Core ML can't keep up.
+      semaphore.wait()
+      DispatchQueue.global().async {
+        self.predict(pixelBuffer: pixelBuffer)
+      }
+    }
+  }
 }
