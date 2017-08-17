@@ -11,8 +11,11 @@
 		D013E6311F18015A00A1A990 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D013E62F1F18015A00A1A990 /* Main.storyboard */; };
 		D013E6361F18015A00A1A990 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D013E6341F18015A00A1A990 /* LaunchScreen.storyboard */; };
 		D013E6851F1917C700A1A990 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D013E6841F19168C00A1A990 /* Assets.xcassets */; };
-		D0FB2C251F444AAA00199C9B /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FB2C241F444AA500199C9B /* VideoCapture.swift */; };
-		D0FB2C271F444AFD00199C9B /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D0FB2C261F444AFD00199C9B /* MobileNet.mlmodel */; };
+		D03733E11F44A4100052032B /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03733E01F44A40C0052032B /* Camera.swift */; };
+		D0D63E171F447C01009AD4D0 /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D0D63E121F447BF0009AD4D0 /* MobileNet.mlmodel */; };
+		D0D63E181F447C01009AD4D0 /* Vision.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D63E0F1F447BD5009AD4D0 /* Vision.swift */; };
+		D0D63E191F447C01009AD4D0 /* VisionInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D63E101F447BD5009AD4D0 /* VisionInput.swift */; };
+		D0D63E1A1F447C01009AD4D0 /* VisionOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D63E111F447BD5009AD4D0 /* VisionOutput.swift */; };
 		D0FB2C291F444B1F00199C9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FB2C281F444B1F00199C9B /* AppDelegate.swift */; };
 		D0FB2C2B1F444CCF00199C9B /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FB2C2A1F444CCF00199C9B /* Utilities.swift */; };
 /* End PBXBuildFile section */
@@ -24,8 +27,11 @@
 		D013E6351F18015A00A1A990 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D013E6371F18015A00A1A990 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D013E6841F19168C00A1A990 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D0FB2C241F444AA500199C9B /* VideoCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
-		D0FB2C261F444AFD00199C9B /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = MobileNet.mlmodel; path = "../../MobileNet-CoreML/Camera Demo/MobileNetCamera/MobileNet.mlmodel"; sourceTree = "<group>"; };
+		D03733E01F44A40C0052032B /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		D0D63E0F1F447BD5009AD4D0 /* Vision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vision.swift; sourceTree = "<group>"; };
+		D0D63E101F447BD5009AD4D0 /* VisionInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionInput.swift; sourceTree = "<group>"; };
+		D0D63E111F447BD5009AD4D0 /* VisionOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionOutput.swift; sourceTree = "<group>"; };
+		D0D63E121F447BF0009AD4D0 /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNet.mlmodel; sourceTree = "<group>"; };
 		D0FB2C281F444B1F00199C9B /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "../../MobileNet-CoreML/Camera Demo/MobileNetCamera/AppDelegate.swift"; sourceTree = "<group>"; };
 		D0FB2C2A1F444CCF00199C9B /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -60,10 +66,10 @@
 		D013E6251F18015A00A1A990 /* ARScanner */ = {
 			isa = PBXGroup;
 			children = (
-				D0FB2C261F444AFD00199C9B /* MobileNet.mlmodel */,
+				D0D63E0E1F447BD5009AD4D0 /* Vision */,
+				D03733DF1F44A40C0052032B /* Camera */,
 				D0FB2C281F444B1F00199C9B /* AppDelegate.swift */,
 				D013E62D1F18015A00A1A990 /* ViewController.swift */,
-				D0FB2C241F444AA500199C9B /* VideoCapture.swift */,
 				D013E62F1F18015A00A1A990 /* Main.storyboard */,
 				D013E6341F18015A00A1A990 /* LaunchScreen.storyboard */,
 				D013E6371F18015A00A1A990 /* Info.plist */,
@@ -73,6 +79,25 @@
 			path = ARScanner;
 			sourceTree = "<group>";
 		};
+		D03733DF1F44A40C0052032B /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				D03733E01F44A40C0052032B /* Camera.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		D0D63E0E1F447BD5009AD4D0 /* Vision */ = {
+			isa = PBXGroup;
+			children = (
+				D0D63E121F447BF0009AD4D0 /* MobileNet.mlmodel */,
+				D0D63E0F1F447BD5009AD4D0 /* Vision.swift */,
+				D0D63E101F447BD5009AD4D0 /* VisionInput.swift */,
+				D0D63E111F447BD5009AD4D0 /* VisionOutput.swift */,
+			);
+			path = Vision;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -80,6 +105,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D013E63B1F18015A00A1A990 /* Build configuration list for PBXNativeTarget "ARScanner" */;
 			buildPhases = (
+				D0AAD0E31F4571DE0072CA9B /* ShellScript */,
 				D013E61F1F18015A00A1A990 /* Sources */,
 				D013E6201F18015A00A1A990 /* Frameworks */,
 				D013E6211F18015A00A1A990 /* Resources */,
@@ -139,16 +165,35 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		D0AAD0E31F4571DE0072CA9B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D013E61F1F18015A00A1A990 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D03733E11F44A4100052032B /* Camera.swift in Sources */,
 				D0FB2C291F444B1F00199C9B /* AppDelegate.swift in Sources */,
-				D0FB2C251F444AAA00199C9B /* VideoCapture.swift in Sources */,
+				D0D63E1A1F447C01009AD4D0 /* VisionOutput.swift in Sources */,
+				D0D63E171F447C01009AD4D0 /* MobileNet.mlmodel in Sources */,
+				D0D63E191F447C01009AD4D0 /* VisionInput.swift in Sources */,
 				D013E62E1F18015A00A1A990 /* ViewController.swift in Sources */,
+				D0D63E181F447C01009AD4D0 /* Vision.swift in Sources */,
 				D0FB2C2B1F444CCF00199C9B /* Utilities.swift in Sources */,
-				D0FB2C271F444AFD00199C9B /* MobileNet.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
