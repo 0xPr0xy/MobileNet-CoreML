@@ -42,7 +42,7 @@ final class Vision {
         }
 
         request = VNCoreMLRequest(model: visionModel, completionHandler: requestDidComplete)
-        request.imageCropAndScaleOption = VNImageCropAndScaleOptionCenterCrop
+        request.imageCropAndScaleOption = .centerCrop
     }
 
     private func predict(pixelBuffer: CVPixelBuffer) {
@@ -71,12 +71,12 @@ final class Vision {
     }
 
     private func show(results: [Prediction]) {
-        var s: [String] = []
-        for (i, pred) in results.enumerated() {
-            s.append(String(format: "%d: %@ (%3.2f%%)", i + 1, pred.0, pred.1 * 100))
+        var strings: [String] = []
+        for (count, pred) in results.enumerated() {
+            strings.append(String(format: "%d: %@ (%3.2f%%)", count + 1, pred.0, pred.1 * 100))
         }
 
-        let predictionLabelText = s.joined(separator: "\n\n")
+        let predictionLabelText = strings.joined(separator: "\n\n")
 
         delegate?.setPredictionLabelText(predictionLabelText)
 

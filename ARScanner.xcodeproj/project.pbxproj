@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A1A59E362240E177002593AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A59E352240E177002593AE /* AppDelegate.swift */; };
 		D013E62E1F18015A00A1A990 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D013E62D1F18015A00A1A990 /* ViewController.swift */; };
 		D013E6311F18015A00A1A990 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D013E62F1F18015A00A1A990 /* Main.storyboard */; };
 		D013E6361F18015A00A1A990 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D013E6341F18015A00A1A990 /* LaunchScreen.storyboard */; };
@@ -16,11 +17,11 @@
 		D0D63E181F447C01009AD4D0 /* Vision.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D63E0F1F447BD5009AD4D0 /* Vision.swift */; };
 		D0D63E191F447C01009AD4D0 /* VisionInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D63E101F447BD5009AD4D0 /* VisionInput.swift */; };
 		D0D63E1A1F447C01009AD4D0 /* VisionOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D63E111F447BD5009AD4D0 /* VisionOutput.swift */; };
-		D0FB2C291F444B1F00199C9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FB2C281F444B1F00199C9B /* AppDelegate.swift */; };
 		D0FB2C2B1F444CCF00199C9B /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FB2C2A1F444CCF00199C9B /* Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A1A59E352240E177002593AE /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D013E6231F18015A00A1A990 /* ARScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D013E62D1F18015A00A1A990 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D013E6301F18015A00A1A990 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -32,7 +33,6 @@
 		D0D63E101F447BD5009AD4D0 /* VisionInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionInput.swift; sourceTree = "<group>"; };
 		D0D63E111F447BD5009AD4D0 /* VisionOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionOutput.swift; sourceTree = "<group>"; };
 		D0D63E121F447BF0009AD4D0 /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNet.mlmodel; sourceTree = "<group>"; };
-		D0FB2C281F444B1F00199C9B /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "../../MobileNet-CoreML/Camera Demo/MobileNetCamera/AppDelegate.swift"; sourceTree = "<group>"; };
 		D0FB2C2A1F444CCF00199C9B /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,7 +68,7 @@
 			children = (
 				D0D63E0E1F447BD5009AD4D0 /* Vision */,
 				D03733DF1F44A40C0052032B /* Camera */,
-				D0FB2C281F444B1F00199C9B /* AppDelegate.swift */,
+				A1A59E352240E177002593AE /* AppDelegate.swift */,
 				D013E62D1F18015A00A1A990 /* ViewController.swift */,
 				D013E62F1F18015A00A1A990 /* Main.storyboard */,
 				D013E6341F18015A00A1A990 /* LaunchScreen.storyboard */,
@@ -131,6 +131,7 @@
 				TargetAttributes = {
 					D013E6221F18015A00A1A990 = {
 						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -187,8 +188,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D03733E11F44A4100052032B /* Camera.swift in Sources */,
-				D0FB2C291F444B1F00199C9B /* AppDelegate.swift in Sources */,
 				D0D63E1A1F447C01009AD4D0 /* VisionOutput.swift in Sources */,
+				A1A59E362240E177002593AE /* AppDelegate.swift in Sources */,
 				D0D63E171F447C01009AD4D0 /* MobileNet.mlmodel in Sources */,
 				D0D63E191F447C01009AD4D0 /* VisionInput.swift in Sources */,
 				D013E62E1F18015A00A1A990 /* ViewController.swift in Sources */,
@@ -337,12 +338,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_STYLE = Manual;
 				COREML_CODEGEN_LANGUAGE = Swift;
-				DEVELOPMENT_TEAM = XQ4S3U462T;
+				DEVELOPMENT_TEAM = 4936NV9Q2W;
 				INFOPLIST_FILE = ARScanner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nl.pydev.ARScanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Dev Wildcard";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
@@ -356,12 +359,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_STYLE = Manual;
 				COREML_CODEGEN_LANGUAGE = Swift;
-				DEVELOPMENT_TEAM = XQ4S3U462T;
+				DEVELOPMENT_TEAM = 4936NV9Q2W;
 				INFOPLIST_FILE = ARScanner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nl.pydev.ARScanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Dev Wildcard";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
